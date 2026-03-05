@@ -76,9 +76,11 @@ model Verification {
 model Product {
   id          String      @id @default(cuid())
   name        String
+  slug String @unique   
   description String?
   price       Float
   stock       Int
+  image String
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
   orderItems  OrderItem[]
@@ -145,4 +147,3 @@ enum Role {
   CUSTOMER
   ADMIN
 }
-  
