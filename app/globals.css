@@ -1,18 +1,5 @@
 @import "tailwindcss";
 
-:root {
-  --main-background: #201c54;
-  --gradiant-background : radial-gradient(circle, rgba(32, 28, 84, 1) 1%, rgba(0, 0, 0, 1) 100%);
-}
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: var(--gradiant-background);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --main-background: #201c54;
-    --gradiant-background : radial-gradient(circle, rgba(32, 28, 84, 1) 1%, rgba(0, 0, 0, 1) 100%);
-  }
-}
+
