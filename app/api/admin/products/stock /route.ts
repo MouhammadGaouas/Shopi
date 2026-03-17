@@ -1,7 +1,7 @@
 import prisma from "@/lib/prisma";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET () {
+export async function GET(req: NextRequest) {
     try {
         const products = await prisma.product.findMany({
             select: {
@@ -10,12 +10,20 @@ export async function GET () {
                 price: true,
                 stock: true,
                 description: true,
-            }
-        })
+            },
+            orderBy: {
+                id: "desc",
+            },
+        });
 
-        return NextResponse.json({ products: products }, { status: 200 })
+        return NextResponse.json({ success: true, products }, { status: 200 });
+
     } catch (error) {
-        console.log(error)
-        return NextResponse.json({message: "Internal server error" ,} , {status: 500})
+        console.error(error);
+
+        return NextResponse.json(
+            { message: "Internal server error" },
+            { status: 500 }
+        );
     }
 }
