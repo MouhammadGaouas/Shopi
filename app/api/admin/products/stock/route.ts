@@ -8,6 +8,7 @@ export async function GET(req: NextRequest) {
                 id: true,
                 name: true,
                 price: true,
+                image: true,
                 stock: true,
                 description: true ,
             },
