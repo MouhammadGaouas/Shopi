@@ -1,6 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
-import { Warehouse, Package, TrendingUp, DollarSign } from 'lucide-react';
+import { Package, TrendingUp, DollarSign } from 'lucide-react';
 import { useEffect, useState } from "react";
 import CreateProductForm from "../../components/CreateProductForm";
 

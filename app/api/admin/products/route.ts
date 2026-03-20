@@ -9,7 +9,7 @@ export async function POST(request: NextRequest) {
   const result = productSchema.safeParse(body);
 
   if (!result.success)
-    return NextResponse.json({ message: "Invalide Input" }, { status: 400 });
+    return NextResponse.json({ message: "Invalid Input", errors: result.error.flatten().fieldErrors }, { status: 400 });
 
   const productData = result.data;
 
@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const alreadyExist = await prisma.product.findUnique({
-      where: { slug },
+      where: {slug }
     });
 
     if (alreadyExist)
@@ -41,8 +41,9 @@ export async function POST(request: NextRequest) {
       message: "Product created successfuly: ",
       product: newProduct,
     });
-  } catch (err) {
-    return NextResponse.json({ message: "Server error" }, { status: 500 });
+  } catch (err: any) {
+    console.error(err);
+    return NextResponse.json({ message: err.message || "Server error" }, { status: 500 });
   }
 }
 

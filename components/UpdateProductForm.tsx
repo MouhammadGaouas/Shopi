@@ -75,6 +75,7 @@ export default function UpdateProductForm({ product, onClose, onSuccess }: Updat
 
       onSuccess();
       onClose();
+      
     } catch (err: any) {
       setError(err.message || 'An error occurred');
     } finally {
