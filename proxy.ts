@@ -19,9 +19,11 @@ export async function proxy(request: NextRequest) {
     return NextResponse.redirect(new URL("/sign-in", request.url));
 
   //if user is authenticated and in  auth page
-  if (session && isAuthPage)
-    return NextResponse.redirect(new URL("/dashboard", request.url));
+  if (session && isAuthPage && session.user.role === "ADMIN")
+      return NextResponse.redirect(new URL("/dashboard" , request.url))
+  else return NextResponse.redirect(new URL("/", request.url))
 
+  
   return NextResponse.next();
 }
 

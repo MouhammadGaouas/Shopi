@@ -4,6 +4,7 @@ import { productSchema } from "@/lib/validation";
 import prisma from "@/lib/prisma";
 
 export async function POST(request: NextRequest) {
+  
   const body = await request.json();
 
   const result = productSchema.safeParse(body);
@@ -30,9 +31,9 @@ export async function POST(request: NextRequest) {
       data: {
         name: productData.name ,
         description: productData.description ,
-        price: productData.price , 
-        image: productData.imageUrl,
-        stock: productData.inStock ,
+        price: productData.price ,
+        image: productData.image,
+        stock: productData.stock ,
         slug
       },
     });

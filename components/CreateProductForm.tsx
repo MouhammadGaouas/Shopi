@@ -32,10 +32,10 @@ export default function CreateProductForm({ onClose, onSuccess }: CreateProductF
 
     const payload = {
       name: formData.name,
-      imageUrl: formData.imageUrl,
+      image: formData.imageUrl,
       description: formData.description || undefined,
       price: parseFloat(formData.price),
-      inStock: parseInt(formData.inStock, 10),
+      stock: parseInt(formData.inStock, 10),
     };
 
     try {

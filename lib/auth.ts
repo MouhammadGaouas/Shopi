@@ -1,6 +1,5 @@
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
-import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 
 export const auth = betterAuth({
@@ -15,8 +14,10 @@ export const auth = betterAuth({
   user: {
     additionalFields: {
       role: {
-        type: "string",
+        type: ["CUSTOMER", "ADMIN"] as const,
+        required: false,
         defaultValue: "CUSTOMER",
+        input: false, // don't allow user to set role during signup
       },
     },
   },
