@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { requireRole } from "@/lib/session";
 
-async function GET(request: NextRequest) {
+export async function GET(request: NextRequest) {
   try {
     const session = await requireRole(request, ["CUSTOMER", "ADMIN"]);
 
@@ -13,7 +13,6 @@ async function GET(request: NextRequest) {
         price: true,
         image: true,
         stock: true,
-        description: true,
       },
     });
 

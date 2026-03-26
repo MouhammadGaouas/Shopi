@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
 :root {
-  --background-color: #070F2B;
-  --forground-color: #1B1A55;
+  --color-primary: #fff;
+  --color-secondary: #e5e5e5;
 }
 
 * {
@@ -10,29 +10,8 @@
   scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
 }
 
-*::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-*::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-*::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-}
-
-*::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
-}
-
 body {
   font-family: "Outfit", sans-serif;
-  background-color: var(--background-color);
-  background-image:
-    radial-gradient(ellipse at top, rgba(26, 214, 161, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse at bottom, rgba(99, 102, 241, 0.08) 0%, transparent 50%);
+  background-color: var(--color-primary);
   background-attachment: fixed;
 }
