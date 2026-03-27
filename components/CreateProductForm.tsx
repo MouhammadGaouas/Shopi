@@ -61,20 +61,20 @@ export default function CreateProductForm({ onClose, onSuccess }: CreateProductF
   };
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4 overflow-y-auto">
+    <div className="z-50 fixed inset-0 flex justify-center items-center bg-black/60 backdrop-blur-sm p-4 overflow-y-auto">
       <div
-        className="bg-white rounded-2xl w-full max-w-lg shadow-2xl overflow-hidden my-auto"
+        className="bg-[var(--card-background)] shadow-2xl my-auto rounded-2xl w-full max-w-lg overflow-hidden"
         style={{ fontFamily: "'DM Sans', sans-serif" }}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-100">
-          <h2 className="text-lg sm:text-xl font-semibold text-gray-900 flex items-center gap-2">
+        <div className="flex justify-between items-center p-4 sm:p-6 border-gray-100 border-b">
+          <h2 className="flex items-center gap-2 font-semibold text-white text-white text-lg sm:text-xl">
             <Plus className="w-5 h-5 text-emerald-600" />
             Create New Product
           </h2>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+            className="hover:bg-gray-100 p-2 rounded-full text-white transition-colors"
             type="button"
           >
             <X className="w-5 h-5 text-gray-500" />
@@ -82,16 +82,16 @@ export default function CreateProductForm({ onClose, onSuccess }: CreateProductF
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4 sm:space-y-5 max-h-[70vh] overflow-y-auto">
+        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 p-4 sm:p-6 max-h-[70vh] overflow-y-auto">
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl text-sm">
+            <div className="bg-red-50 px-4 py-3 border border-red-200 rounded-xl text-red-700 text-sm">
               {error}
             </div>
           )}
 
           {/* Name */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5">
+            <label className="block mb-1.5 font-medium text-white text-sm">
               Product Name <span className="text-red-500">*</span>
             </label>
             <input
@@ -101,13 +101,13 @@ export default function CreateProductForm({ onClose, onSuccess }: CreateProductF
               onChange={handleChange}
               required
               placeholder="e.g., Wireless Headphones"
-              className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all text-gray-900 placeholder-gray-400"
+              className="px-4 py-2.5 border border-gray-200 focus:border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 w-full text-white transition-all placeholder-gray-400"
             />
           </div>
 
           {/* Image URL */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5">
+            <label className="block mb-1.5 font-medium text-white text-sm">
               Image URL <span className="text-red-500">*</span>
             </label>
             <input
@@ -117,13 +117,13 @@ export default function CreateProductForm({ onClose, onSuccess }: CreateProductF
               onChange={handleChange}
               required
               placeholder="https://example.com/image.jpg"
-              className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all text-gray-900 placeholder-gray-400"
+              className="px-4 py-2.5 border border-gray-200 focus:border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 w-full text-white transition-all placeholder-gray-400"
             />
           </div>
 
           {/* Description */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1.5">
+            <label className="block mb-1.5 font-medium text-white text-sm">
               Description
             </label>
             <textarea
@@ -132,14 +132,14 @@ export default function CreateProductForm({ onClose, onSuccess }: CreateProductF
               onChange={handleChange}
               rows={3}
               placeholder="Product description..."
-              className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all text-gray-900 placeholder-gray-400 resize-none"
+              className="px-4 py-2.5 border border-gray-200 focus:border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 w-full text-white transition-all resize-none placeholder-gray-400"
             />
           </div>
 
           {/* Price and Stock */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="gap-4 grid grid-cols-2">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1.5">
+              <label className="block mb-1.5 font-medium text-white text-sm">
                 Price ($) <span className="text-red-500">*</span>
               </label>
               <input
@@ -151,11 +151,11 @@ export default function CreateProductForm({ onClose, onSuccess }: CreateProductF
                 min="0"
                 step="0.01"
                 placeholder="0.00"
-                className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all text-gray-900 placeholder-gray-400"
+                className="px-4 py-2.5 border border-gray-200 focus:border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 w-full text-white transition-all placeholder-gray-400"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1.5">
+              <label className="block mb-1.5 font-medium text-white text-sm">
                 Stock <span className="text-red-500">*</span>
               </label>
               <input
@@ -166,7 +166,7 @@ export default function CreateProductForm({ onClose, onSuccess }: CreateProductF
                 required
                 min="0"
                 placeholder="0"
-                className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all text-gray-900 placeholder-gray-400"
+                className="px-4 py-2.5 border border-gray-200 focus:border-transparent rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500 w-full text-white transition-all placeholder-gray-400"
               />
             </div>
           </div>
@@ -177,18 +177,18 @@ export default function CreateProductForm({ onClose, onSuccess }: CreateProductF
               type="button"
               onClick={onClose}
               disabled={loading}
-              className="flex-1 px-4 py-2.5 border border-gray-200 rounded-xl text-gray-700 font-medium hover:bg-gray-50 transition-colors disabled:opacity-50"
+              className="flex-1 bg-red-400/70 hover:bg-gray-50 disabled:opacity-50 px-4 py-2.5 border border-gray-200 rounded-xl font-medium text-white transition-colors"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={loading}
-              className="flex-1 px-4 py-2.5 bg-emerald-600 text-white rounded-xl font-medium hover:bg-emerald-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+              className="flex flex-1 justify-center items-center gap-2 bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 px-4 py-2.5 rounded-xl font-medium text-white transition-colors"
             >
               {loading ? (
                 <>
-                  <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  <div className="border-2 border-white/30 border-t-white rounded-full w-4 h-4 animate-spin" />
                   Creating...
                 </>
               ) : (

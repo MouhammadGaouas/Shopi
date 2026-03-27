@@ -35,11 +35,11 @@ export default function Home() {
 
 
   return (
-    <div className="min-h-screen p-6">
+    <div className="p-6 min-h-screen">
 
-      <h1 className='text-white text-2xl font-semibold'>| <span className='ml-6'>Home</span></h1>
+      <h1 className='font-semibold text-white text-2xl'>| <span className='ml-6'>Home</span></h1>
 
-      <div className='mt-6 grid grid-cols-4'>
+      <div className='grid grid-cols-4 mt-6'>
         {
           products.map((val , key) => {
             return <Product key={key} {...val} />

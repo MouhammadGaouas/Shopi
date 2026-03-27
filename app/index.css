@@ -1,8 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
 :root {
-  --color-primary: #fff;
-  --color-secondary: #e5e5e5;
+  --color-primary: #0f161d;
+  --color-secondary: #192431;
+  --card-background: #1f262e ; 
+  --main-shadow: 0 0 4px 2px rgba(0 , 0 , 0 , 0.2)
 }
 
 * {

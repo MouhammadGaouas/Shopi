@@ -57,7 +57,7 @@ export default function Stock() {
 
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex justify-center items-center">
 
       {
         onUpdateProduct &&
@@ -67,11 +67,11 @@ export default function Stock() {
       }
       {
         products.length === 0 ? (
-          <div className="text-white text-center text-3xl mt-8">
+          <div className="mt-8 text-white text-3xl text-center">
             The Stock is Empty
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {products.map((product) => (
               <ProductCard
                 key={product.id}

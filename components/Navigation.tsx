@@ -19,35 +19,38 @@ const Navigation = () => {
   }, [isPending, session, router]);
 
   return (
-    <nav className='sticky  top-0 z-50 w-full backdrop-blur-lg bg-[var(--forground-color)]/80 border-b border-white/10 shadow-lg'>
-      <div className='max-w-7xl mx-auto px-6 py-4 flex items-center justify-between'>
+    <nav className='top-0 z-50 sticky bg-[var(--color-secondary)]/80 shadow-lg backdrop-blur-lg border-white/10 border-b w-full'>
+      <div className='flex justify-between items-center mx-auto px-6 py-4 max-w-7xl'>
         <div className='flex items-center gap-12'>
           <button
             onClick={() => router.push("/")}
-            className='flex items-center gap-2.5 group'
+            className='group flex items-center gap-2.5'
           >
-            <div className='w-10 h-10 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-emerald-500/25 transition-shadow'>
+            <div className='flex justify-center items-center bg-gradient-to-br from-emerald-500 to-teal-600 shadow-lg group-hover:shadow-emerald-500/25 rounded-xl w-10 h-10 transition-shadow'>
               <ShoppingBag className='w-6 h-6 text-white' />
             </div>
-            <span className='text-2xl font-bold text-white'>Shopi</span>
+            <span className='font-bold text-white text-2xl'>Shopi</span>
           </button>
 
           <ul className='flex items-center gap-2'>
             <li>
               <button
                 onClick={() => router.push("/")}
-                className='px-4 py-2 text-gray-300 hover:text-white font-medium rounded-lg hover:bg-white/10 transition-all duration-200'
+                className='hover:bg-white/10 px-4 py-2 rounded-lg font-medium text-gray-300 hover:text-white transition-all duration-200'
               >
                 Home
               </button>
             </li>
             <li>
-              <button
-                onClick={() => router.push("/dashboard")}
-                className='px-4 py-2 text-gray-300 hover:text-white font-medium rounded-lg hover:bg-white/10 transition-all duration-200'
-              >
-                Dashboard
-              </button>
+              {
+                session?.user?.role === "ADMIN" ?
+                  <button
+                    onClick={() => router.push("/dashboard")}
+                    className='hover:bg-white/10 px-4 py-2 rounded-lg font-medium text-gray-300 hover:text-white transition-all duration-200'
+                  >
+                    Dashboard
+                  </button>  : null
+              }
             </li>
           </ul>
         </div>
@@ -56,14 +59,8 @@ const Navigation = () => {
           {!session?.user && !isPending ? (
             <>
               <button
-                onClick={() => router.push("/sign-in")}
-                className='px-5 py-2.5 text-white font-medium rounded-xl hover:bg-white/10 transition-all duration-200'
-              >
-                Sign In
-              </button>
-              <button
                 onClick={() => router.push("/sign-up")}
-                className='px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold rounded-xl hover:from-emerald-600 hover:to-teal-700 transition-all duration-300 shadow-lg hover:shadow-emerald-500/25'
+                className='bg-gradient-to-r from-emerald-500 hover:from-emerald-600 to-teal-600 hover:to-teal-700 shadow-lg hover:shadow-emerald-500/25 px-5 py-2.5 rounded-xl font-semibold text-white transition-all duration-300'
               >
                 Get Started
               </button>
@@ -72,7 +69,7 @@ const Navigation = () => {
 
             <button
               onClick={() => signOut()}
-              className='px-5 py-2.5 bg-red-500/10 border border-red-500/20 text-red-400 font-medium rounded-xl hover:bg-red-500/20 transition-all duration-200  items-center gap-2 md:flex hidden'
+              className='hidden md:flex items-center gap-2 bg-red-500/10 hover:bg-red-500/20 px-5 py-2.5 border border-red-500/20 rounded-xl font-medium text-red-400 transition-all duration-200'
             >
               <LogOut className='w-4 h-4' />
               Sign Out

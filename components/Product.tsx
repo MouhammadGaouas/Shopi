@@ -12,21 +12,21 @@ interface Product {
 
 export default function Product({ id, name, price, stock, image}: Product) {
     return (
-        <div className=' bg-white shadow[var(--main-shadow)] w-90 rounded-xl p-4'>
-            <div className='rounded-xl overflow-hidden relative'>
-                <img className='h-full w-full object-cover' src={image} alt="" />
+        <div className='bg-[var(--card-background)] shadow-[var(--main-shadow)] p-4 rounded-xl w-90'>
+            <div className='relative rounded-xl h-70 overflow-hidden'>
+                <img className='w-full h-full object-cover' src={image} alt="" />
             </div>
             <div className='mt-4'>
-                <div className='flex items-center justify-between'>
-                    <h1 className='font-semibold text-lg'>{name}</h1>
-                    <p className='text-2xl text-yellow-500 font-semibold'>${price}</p>
+                <div className='flex justify-between items-center'>
+                    <h1 className='font-semibold text-white text-lg'>{name}</h1>
+                    <p className='font-semibold text-yellow-500 text-2xl'>${price}</p>
                 </div>
                 <div className='mt-2'>
-                    <p>in Stock : {stock}</p>
+                    <p className='text-white'>in Stock : {stock}</p>
                 </div>
-                <div className='mt-4 flex items-center justify-between gap-6 '>
-                    <button className='text-white text-lg bg-black px-6 py-1 flex-1 rounded-sm'>add to Cart</button>
-                    <button className='text-white text-lg bg-black px-6 py-1 flex-1 rounded-sm'>Buy Now</button>
+                <div className='flex justify-between items-center gap-6 mt-4'>
+                    <button className='flex-1 bg-black px-6 py-1 rounded-sm text-white text-lg'>add to Cart</button>
+                    <button className='flex-1 bg-black px-6 py-1 rounded-sm text-white text-lg'>Buy Now</button>
                 </div>
             </div>
         </div>
